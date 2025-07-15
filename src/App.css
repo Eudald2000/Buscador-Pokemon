@@ -1,4 +1,4 @@
-/* .card-pokemon {
+.card-pokemon {
   min-width: 100px;
   border: 8px solid #EDCC1F;
 
@@ -12,34 +12,18 @@
   small {
     display: block;
     font-size: 16px;
-    margin-top: 2px;
   }
-
-  .list-group>li {
-    background: #D5803F;
-    border-top: 2px solid black;
+  
+  p{
+    margin: 0;
   }
 }
 
 .card-fire {
-  background-color: #D5803F;
+  /* background-color: #D5803F; */
 }
 
 .container-inner {
   width: 50%;
   margin: 0 auto;
-} 
-  */
-
-.card{
-  width: 18rem;
-  margin: 20px auto;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-}
-
-main{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
 }
