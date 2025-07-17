@@ -26,7 +26,7 @@ export const FrontCard = ({ pokemon }) => {
               </span>
             </div>
 
-            <div className="row letraPequeña">
+            <div className="row letraPequeña mt-5">
               {pokemon.stats.map((stat, index) => (
                 <div
                   key={index}

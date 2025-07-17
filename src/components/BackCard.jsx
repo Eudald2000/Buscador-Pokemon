@@ -8,7 +8,7 @@ export const BackCard = ({ pokemon }) => {
             src={pokemon.sprites.back_default}
             alt={`${pokemon.name} reverse`}
             className="img-fluid mb-2"
-            style={{ maxHeight: '100px' }}
+            style={{ maxHeight: '140px' }}
           />
         )}
       </div>

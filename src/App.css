@@ -188,33 +188,7 @@
   background: linear-gradient(135deg, #7AC74C, #735797);
 }
 
-/* ------ CARTA POKEMON ------- */
-.card-pokemon {
-  width: 340px; /* Más ancha */
-  aspect-ratio: 3 / 4; /* Proporción más horizontal */
-  border: 8px solid #EDCC1F;
-  border-radius: 1rem; /* Bordes redondeados tipo carta */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra elegante */
-  overflow: hidden; /* Evita desbordes */
 
-  img {
-    display: block;
-    margin: auto;
-    width: 80%;
-    border: 4px solid #D1C54F;
-    border-radius: 0.5rem;
-    padding: 4px;
-  }
-
-  small {
-    display: block;
-    font-size: 16px;
-  }
-
-  p {
-    margin: 0;
-  }
-}
 
 .list-group-item{
   background-color: transparent;
@@ -222,4 +196,59 @@
 
 .letraPequeña {
   font-size: 0.8rem;
+}
+
+
+/* ------- CARTA POKEMON --------------- */
+
+/* Contenedor para efecto 3D - Manteniendo el tamaño original */
+.card-pokemon-container {
+  perspective: 1000px;
+  width: 340px; /* Mismo ancho que la carta original */
+  aspect-ratio: 3 / 4; /* Mantener proporción */
+}
+
+/* Contenedor interno para el volteo */
+.card-pokemon-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+/* Estado volteado */
+.card-pokemon-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Caras de la carta (frente y dorso) */
+.card-pokemon-inner .card-pokemon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  
+  /* Mantener todos los estilos originales de la carta */
+  border: 8px solid #EDCC1F !important;
+  border-radius: 1rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* Dorso girado 180 grados inicialmente */
+.card-pokemon-inner .card-pokemon:last-child {
+  transform: rotateY(180deg);
+}
+
+/* Restaurar estilos de imágenes */
+.card-pokemon img {
+  display: block;
+  margin: auto;
+  width: 80%;
+  border: 4px solid #D1C54F !important; /* Borde amarillo */
+  border-radius: 0.5rem;
+  padding: 4px;
 }

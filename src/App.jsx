@@ -40,26 +40,18 @@ function App () {
       </header>
       <main className="container d-flex flex-column align-items-center justify-content-center flex-grow-1">
         {loading
-          ? (
-          <Loading />
-            )
+          ? <Loading />
           : pokemon
             ? (
                 <PokemonCard
                   gradientClass={gradientClass}
                   flippCard={handleFlip}
-                  flipped={flipped
-                }>
-                  {
-                    flipped
-                      ? <BackCard pokemon={pokemon}/>
-                      : <FrontCard pokemon={pokemon}/>
-                  }
-                </PokemonCard>
+                  flipped={flipped}
+                  front={<FrontCard pokemon={pokemon} />}
+                  back={<BackCard pokemon={pokemon} />}
+                />
               )
-            : (
-                !loading && !pokemon && !firstSearch && <PokemonError error="No se encontró el Pokémon" />
-              )
+            : (!loading && !pokemon && !firstSearch && <PokemonError error="No se encontró el Pokémon" />)
         }
       </main>
     </div>
