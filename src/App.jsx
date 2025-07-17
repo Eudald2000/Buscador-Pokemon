@@ -6,9 +6,12 @@ import { Loading } from './components/Loading'
 import { PokemonCard } from './components/PokemonCard'
 import { PokemonError } from './components/PokemonError'
 import { useUnPokemon } from './hooks/useUnPokemon'
+import { FrontCard } from './components/FrontCard'
+import { BackCard } from './components/BackCard'
 
 function App () {
   const [searchTerm, setSearchTerm] = useState('')
+  const [flipped, setFlipped] = useState(false)
   const { pokemon, loading, gradientClass, error, firstSearch, fetchPokemon } = useUnPokemon()
 
   function handleSubmit (e) {
@@ -20,6 +23,10 @@ function App () {
   function handleChange (e) {
     const newSearch = e.target.value
     setSearchTerm(newSearch)
+  }
+
+  function handleFlip () {
+    setFlipped(!flipped)
   }
 
   return (
@@ -38,7 +45,17 @@ function App () {
             )
           : pokemon
             ? (
-                <PokemonCard pokemon={pokemon} gradientClass={gradientClass} />
+                <PokemonCard
+                  gradientClass={gradientClass}
+                  flippCard={handleFlip}
+                  flipped={flipped
+                }>
+                  {
+                    flipped
+                      ? <BackCard pokemon={pokemon}/>
+                      : <FrontCard pokemon={pokemon}/>
+                  }
+                </PokemonCard>
               )
             : (
                 !loading && !pokemon && !firstSearch && <PokemonError error="No se encontró el Pokémon" />

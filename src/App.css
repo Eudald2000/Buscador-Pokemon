@@ -20,6 +20,18 @@
 .type-stellar { background-color: #44607D; }
 .type-unknown { background-color: #68A090; }
 
+.type-bug-rock-gradient {
+  background: linear-gradient(135deg, #A6B91A, #B6A136);
+}
+.type-steel-poison-gradient {
+  background: linear-gradient(135deg, #B7B7CE, #A33EA1);
+}
+.type-water-poison-gradient {
+  background: linear-gradient(135deg, #6390F0, #A33EA1);
+}
+.type-ghost-grass-gradient {
+  background: linear-gradient(135deg, #735797, #7AC74C);
+}
 .type-grass-fighting-gradient {
   background: linear-gradient(135deg, #7AC74C, #C22E28);
 }
@@ -175,6 +187,8 @@
 .type-grass-ghost-gradient {
   background: linear-gradient(135deg, #7AC74C, #735797);
 }
+
+/* ------ CARTA POKEMON ------- */
 .card-pokemon {
   width: 340px; /* Más ancha */
   aspect-ratio: 3 / 4; /* Proporción más horizontal */
@@ -182,11 +196,6 @@
   border-radius: 1rem; /* Bordes redondeados tipo carta */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra elegante */
   overflow: hidden; /* Evita desbordes */
-  transition: transform 0.2s ease; /* Para animación suave */
-
-  &:hover {
-    transform: scale(1.03); /* Efecto sutil al pasar el ratón */
-  }
 
   img {
     display: block;
@@ -205,4 +214,12 @@
   p {
     margin: 0;
   }
+}
+
+.list-group-item{
+  background-color: transparent;
+}
+
+.letraPequeña {
+  font-size: 0.8rem;
 }
