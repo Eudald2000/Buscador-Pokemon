@@ -20,6 +20,9 @@
 .type-stellar { background-color: #44607D; }
 .type-unknown { background-color: #68A090; }
 
+.type-steel-ghost-gradient {
+  background: linear-gradient(135deg, #B7B7CE, #735797);
+}
 .type-bug-rock-gradient {
   background: linear-gradient(135deg, #A6B91A, #B6A136);
 }

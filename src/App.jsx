@@ -30,14 +30,14 @@ function App () {
   }
 
   return (
-    <div className="min-vh-100 d-flex flex-column justify-content-center align-items-center bg-light">
-      <header className="w-100 py-4">
-        <Buscador
-          handleSubmit={handleSubmit}
-          handleChange={handleChange}
-          searchTerm={searchTerm}
-        />
-      </header>
+    <div className="min-vh-100 d-flex flex-column justify-content-center align-items-center bg-light px-3">
+  <header className="w-100 py-4">
+    <Buscador
+      handleSubmit={handleSubmit}
+      handleChange={handleChange}
+      searchTerm={searchTerm}
+    />
+  </header>
       <main className="container d-flex flex-column align-items-center justify-content-center flex-grow-1">
         {loading
           ? <Loading />
