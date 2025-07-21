@@ -8,11 +8,12 @@ import { PokemonError } from './components/PokemonError'
 import { useUnPokemon } from './hooks/useUnPokemon'
 import { FrontCard } from './components/FrontCard'
 import { BackCard } from './components/BackCard'
+import { PokemonList } from './components/PokemonList'
 
 function App () {
   const [searchTerm, setSearchTerm] = useState('')
   const [flipped, setFlipped] = useState(false)
-  const { pokemon, loading, gradientClass, error, firstSearch, fetchPokemon } = useUnPokemon()
+  const { pokemon, pokemons, loading, gradientClass, error, firstSearch, fetchPokemon } = useUnPokemon()
 
   function handleSubmit (e) {
     e.preventDefault()
@@ -31,18 +32,33 @@ function App () {
 
   return (
     <div className="min-vh-100 d-flex flex-column justify-content-center align-items-center bg-light px-3">
-  <header className="w-100 py-4">
-    <Buscador
-      handleSubmit={handleSubmit}
-      handleChange={handleChange}
-      searchTerm={searchTerm}
-    />
-  </header>
+      <header className="w-100 py-4">
+        <Buscador
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}
+          searchTerm={searchTerm}
+        />
+      </header>
       <main className="container d-flex flex-column align-items-center justify-content-center flex-grow-1">
         {loading
           ? <Loading />
-          : pokemon
+          : pokemons && pokemons.length > 0
             ? (
+              <PokemonList>
+                {pokemons.map((poke, idx) => (
+                  <PokemonCard
+                    key={poke.id || idx}
+                    gradientClass={poke.gradientClass}
+                    flippCard={handleFlip}
+                    flipped={flipped}
+                    front={<FrontCard pokemon={poke} />}
+                    back={<BackCard pokemon={poke} />}
+                  />
+                ))}
+              </PokemonList>
+              )
+            : pokemon
+              ? (
                 <PokemonCard
                   gradientClass={gradientClass}
                   flippCard={handleFlip}
@@ -50,8 +66,8 @@ function App () {
                   front={<FrontCard pokemon={pokemon} />}
                   back={<BackCard pokemon={pokemon} />}
                 />
-              )
-            : (!loading && !pokemon && !firstSearch && <PokemonError error="No se encontró el Pokémon" />)
+                )
+              : (!loading && !pokemon && !firstSearch && <PokemonError error="No se encontró el Pokémon" />)
         }
       </main>
     </div>
