@@ -11,11 +11,10 @@
 /* Contenedor para efecto 3D - Manteniendo el tamaño original */
 .card-pokemon-container {
   perspective: 1000px;
-  min-width: 240px;
+  min-width: 250px;
   max-width: 320px;
   aspect-ratio: 3 / 4;
 }
-
 /* Contenedor interno para el volteo */
 .card-pokemon-inner {
   position: relative;
@@ -60,4 +59,7 @@
   /* Borde amarillo */
   border-radius: 0.5rem;
   padding: 4px;
+}
+.card-pokemon {
+  min-height: 430px; /* o ajusta según lo que necesites */
 }

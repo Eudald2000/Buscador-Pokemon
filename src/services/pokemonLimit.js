@@ -1,13 +1,23 @@
-const API = 'https://pokeapi.co/api/v2/pokemon?limit=10000'
+// services/pokemonLimit.js
+const API = 'https://pokeapi.co/api/v2/pokemon?limit=1000&offset=0'
+let cachedAllPokemon = null
 
 export const pokemonLimit = async () => {
+  if (cachedAllPokemon) return cachedAllPokemon
   try {
-    const response = await fetch(`${API}`)
+    const allResults = []
+    let url = API
 
-    const json = await response.json()
+    while (url) {
+      const response = await fetch(url)
+      const json = await response.json()
+      allResults.push(...json.results)
+      url = json.next // si hay más, continúa
+    }
 
-    return json
+    cachedAllPokemon = allResults
+    return cachedAllPokemon
   } catch (error) {
-    throw new Error('Error fetching pokemon: ' + error.message)
+    throw new Error('Error al cargar todos los Pokémon: ' + error.message)
   }
 }

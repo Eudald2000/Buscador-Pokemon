@@ -2,9 +2,7 @@ import { useState } from 'react'
 import { searchId } from '../services/pokemonId'
 import { searchSpecies } from '../services/pokemonSecie'
 import { typeColors } from '../services/colores'
-import pokemonLimitJson from '../mooks/pokemonLimitJson.json'
-
-// QUE NO COJA EL RESULTADO DE LAS MOOKS
+import { pokemonLimit } from '../services/pokemonLimit'
 
 export function useUnPokemon () {
   const [pokemon, setPokemon] = useState(null)
@@ -101,12 +99,31 @@ export function useUnPokemon () {
         const fullData = await getFullPokemonData(term)
         setPokemon(fullData)
       } else {
-        const data = pokemonLimitJson.results
-        const pokemonFound = data.filter(pokemon => pokemon.name.includes(term))
-        const pokemonsFullData = await Promise.all(
-          pokemonFound.map(async (poke) => await getFullPokemonData(poke.url))
+        const data = await pokemonLimit()
+        const search = term.trim().toLowerCase()
+
+        const pokemonFound = data.filter((pokemon) =>
+          pokemon.name.includes(search)
         )
-        setPokemons(pokemonsFullData)
+
+        if (pokemonFound.length === 0) {
+          setError('No se encontró el Pokémon')
+          setLoading(false)
+          return
+        }
+
+        const pokemonsFullData = await Promise.all(
+          pokemonFound.map(async (poke) => {
+            try {
+              return await getFullPokemonData(poke.url)
+            } catch (err) {
+              console.warn(`Error con ${poke.name}:`, err)
+              return null
+            }
+          })
+        )
+
+        setPokemons(pokemonsFullData.filter(Boolean))
       }
     } catch (err) {
       console.error('Error:', err)
