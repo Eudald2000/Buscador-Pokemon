@@ -1,7 +1,7 @@
 export const FrontCard = ({ pokemon }) => {
   return (
     <div id={pokemon.id} className="card-body p-3">
-            <div className="text-center mb-2">
+            <div className="text-center">
               <h4 className="fw-bold text-uppercase fs-5 mb-1">
                 {pokemon.name}
               </h4>
@@ -11,7 +11,7 @@ export const FrontCard = ({ pokemon }) => {
             <img
               src={pokemon.sprites.front_default}
               alt={pokemon.name}
-              className="img-fluid mb-3 mx-auto"
+              className="img-fluid mx-auto"
               style={{ maxHeight: '140px' }}
             />
 

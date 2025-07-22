@@ -1,199 +1,4 @@
-/* ----- COLORES DE TIPOS DE POKEMON ----- */
-.type-normal { background-color: #bcbcb2; }
-.type-fighting { background-color: #C22E28; }
-.type-flying { background-color: #A98FF3; }
-.type-poison { background-color: #A33EA1; }
-.type-ground { background-color: #E2BF65; }
-.type-rock { background-color: #B6A136; }
-.type-bug { background-color: #A6B91A; }
-.type-ghost { background-color: #735797; }
-.type-steel { background-color: #B7B7CE; }
-.type-fire { background-color: #EE8130; }
-.type-water { background-color: #6390F0; }
-.type-grass { background-color: #7AC74C; }
-.type-electric { background-color: #F7D02C; }
-.type-psychic { background-color: #F95587; }
-.type-ice { background-color: #96D9D6; }
-.type-dragon { background-color: #6F35FC; }
-.type-dark { background-color: #705746; }
-.type-fairy { background-color: #D685AD; }
-.type-stellar { background-color: #44607D; }
-.type-unknown { background-color: #68A090; }
-
-.type-steel-ghost-gradient {
-  background: linear-gradient(135deg, #B7B7CE, #735797);
-}
-.type-bug-rock-gradient {
-  background: linear-gradient(135deg, #A6B91A, #B6A136);
-}
-.type-steel-poison-gradient {
-  background: linear-gradient(135deg, #B7B7CE, #A33EA1);
-}
-.type-water-poison-gradient {
-  background: linear-gradient(135deg, #6390F0, #A33EA1);
-}
-.type-ghost-grass-gradient {
-  background: linear-gradient(135deg, #735797, #7AC74C);
-}
-.type-grass-fighting-gradient {
-  background: linear-gradient(135deg, #7AC74C, #C22E28);
-}
-.type-water-fighting-gradient {
-  background: linear-gradient(135deg, #6390F0, #C22E28);
-}
-.type-dragon-ice-gradient {
-  background: linear-gradient(135deg, #6F35FC, #96D9D6);
-}
-.type-ground-flying-gradient {
-  background: linear-gradient(135deg, #E2BF65, #A98FF3);
-}
-.type-normal-fighting-gradient {
-  background: linear-gradient(135deg, #bcbcb2, #C22E28);
-}
-.type-fire-psychic-gradient {
-  background: linear-gradient(135deg, #EE8130, #F95587);
-}
-.type-electric-grass-gradient {
-  background: linear-gradient(135deg, #F7D02C, #7AC74C);
-}
-.type-electric-ice-gradient {
-  background: linear-gradient(135deg, #F7D02C, #96D9D6);
-}
-.type-electric-water-gradient {
-  background: linear-gradient(135deg, #F7D02C, #6390F0);
-}
-.type-electric-fire-gradient {
-  background: linear-gradient(135deg, #F7D02C, #EE8130);
-}
-.type-ghost-dragon-gradient {
-  background: linear-gradient(135deg, #735797, #6F35FC);
-}
-.type-bug-steel-gradient {
-  background: linear-gradient(135deg, #A6B91A, #B7B7CE);
-}
-.type-dragon-dark-gradient {
-  background: linear-gradient(135deg, #6F35FC, #705746);
-}
-.type-fire-fighting-gradient {
-  background: linear-gradient(135deg, #EE8130, #C22E28);
-}
-.type-normal-water-gradient {
-  background: linear-gradient(135deg, #bcbcb2, #6390F0);
-}
-.type-grass-poison-gradient {
-  background: linear-gradient(135deg, #7AC74C, #A33EA1);
-}
-
-.type-fire-flying-gradient {
-  background: linear-gradient(135deg, #EE8130, #A98FF3);
-}
-
-.type-water-ice-gradient {
-  background: linear-gradient(135deg, #6390F0, #96D9D6);
-}
-
-.type-normal-flying-gradient {
-  background: linear-gradient(135deg, #bcbcb2, #A98FF3);
-}
-
-.type-bug-flying-gradient {
-  background: linear-gradient(135deg, #A6B91A, #A98FF3);
-}
-
-.type-electric-steel-gradient {
-  background: linear-gradient(135deg, #F7D02C, #B7B7CE);
-}
-
-.type-rock-ground-gradient {
-  background: linear-gradient(135deg, #B6A136, #E2BF65);
-}
-
-.type-steel-psychic-gradient {
-  background: linear-gradient(135deg, #B7B7CE, #F95587);
-}
-
-.type-dark-flying-gradient {
-  background: linear-gradient(135deg, #705746, #A98FF3);
-}
-
-.type-dragon-flying-gradient {
-  background: linear-gradient(135deg, #6F35FC, #A98FF3);
-}
-
-.type-water-dark-gradient {
-  background: linear-gradient(135deg, #6390F0, #705746);
-}
-
-.type-fighting-dark-gradient {
-  background: linear-gradient(135deg, #C22E28, #705746);
-}
-
-.type-ground-steel-gradient {
-  background: linear-gradient(135deg, #E2BF65, #B7B7CE);
-}
-
-.type-fire-dragon-gradient {
-  background: linear-gradient(135deg, #EE8130, #6F35FC);
-}
-
-.type-ghost-poison-gradient {
-  background: linear-gradient(135deg, #735797, #A33EA1);
-}
-.type-bug-poison-gradient {
-  background: linear-gradient(135deg, #A6B91A, #A33EA1);
-}
-
-.type-fire-rock-gradient {
-  background: linear-gradient(135deg, #EE8130, #B6A136);
-}
-
-.type-electric-flying-gradient {
-  background: linear-gradient(135deg, #F7D02C, #A98FF3);
-}
-
-.type-grass-flying-gradient {
-  background: linear-gradient(135deg, #7AC74C, #A98FF3);
-}
-
-.type-water-ground-gradient {
-  background: linear-gradient(135deg, #6390F0, #E2BF65);
-}
-
-.type-steel-ground-gradient {
-  background: linear-gradient(135deg, #B7B7CE, #E2BF65);
-}
-
-.type-rock-electric-gradient {
-  background: linear-gradient(135deg, #B6A136, #F7D02C);
-}
-
-.type-dragon-electric-gradient {
-  background: linear-gradient(135deg, #6F35FC, #F7D02C);
-}
-
-.type-fighting-flying-gradient {
-  background: linear-gradient(135deg, #C22E28, #A98FF3);
-}
-
-.type-poison-dark-gradient {
-  background: linear-gradient(135deg, #A33EA1, #705746);
-}
-
-.type-fairy-steel-gradient {
-  background: linear-gradient(135deg, #D685AD, #B7B7CE);
-}
-
-.type-water-fairy-gradient {
-  background: linear-gradient(135deg, #6390F0, #D685AD);
-}
-
-.type-grass-ghost-gradient {
-  background: linear-gradient(135deg, #7AC74C, #735797);
-}
-
-
-
-.list-group-item{
+.list-group-item {
   background-color: transparent;
 }
 
@@ -201,14 +6,14 @@
   font-size: 0.8rem;
 }
 
-
 /* ------- CARTA POKEMON --------------- */
 
 /* Contenedor para efecto 3D - Manteniendo el tamaño original */
 .card-pokemon-container {
   perspective: 1000px;
-  width: 340px; /* Mismo ancho que la carta original */
-  aspect-ratio: 3 / 4; /* Mantener proporción */
+  min-width: 240px;
+  max-width: 320px;
+  aspect-ratio: 3 / 4;
 }
 
 /* Contenedor interno para el volteo */
@@ -233,7 +38,7 @@
   backface-visibility: hidden;
   top: 0;
   left: 0;
-  
+
   /* Mantener todos los estilos originales de la carta */
   border: 8px solid #EDCC1F !important;
   border-radius: 1rem;
@@ -251,7 +56,8 @@
   display: block;
   margin: auto;
   width: 80%;
-  border: 4px solid #D1C54F !important; /* Borde amarillo */
+  border: 4px solid #D1C54F !important;
+  /* Borde amarillo */
   border-radius: 0.5rem;
   padding: 4px;
 }

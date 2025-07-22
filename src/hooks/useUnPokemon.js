@@ -1,15 +1,16 @@
 import { useState } from 'react'
 import { searchId } from '../services/pokemonId'
 import { searchSpecies } from '../services/pokemonSecie'
-import { pokemonLimit } from '../services/pokemonLimit'
+import { typeColors } from '../services/colores'
 import pokemonLimitJson from '../mooks/pokemonLimitJson.json'
+
+// QUE NO COJA EL RESULTADO DE LAS MOOKS
 
 export function useUnPokemon () {
   const [pokemon, setPokemon] = useState(null)
   const [pokemons, setPokemons] = useState([])
   const [firstSearch, setFirstSearch] = useState(true)
   const [loading, setLoading] = useState(false)
-  const [gradientClass, setGradientClass] = useState('')
   const [error, setError] = useState(null)
 
   const fetchPokemon = async ({ term }) => {
@@ -62,6 +63,18 @@ export function useUnPokemon () {
         return names
       }
 
+      const types = data.types.map((t) => t.type.name)
+      let gradientClass = ''
+      if (types.length === 2) {
+        const [type1, type2] = [...types].sort()
+        const color1 = typeColors[type1]
+        const color2 = typeColors[type2]
+        gradientClass = `linear-gradient(135deg, ${color1}, ${color2})`
+      } else {
+        const color = typeColors[types[0]]
+        gradientClass = color
+      }
+
       const evolutionNames = getEvolutionNames(evolutionData.chain)
 
       return {
@@ -78,22 +91,15 @@ export function useUnPokemon () {
         height: data.height,
         stats: data.stats,
         flavorText: getSpanishFlavorText(speciesData.flavor_text_entries),
-        evolutionChain: evolutionNames
+        evolutionChain: evolutionNames,
+        gradientClass
       }
     }
 
-    // ...existing code...
     try {
       if (esUnNumero(term)) {
         const fullData = await getFullPokemonData(term)
         setPokemon(fullData)
-
-        const types = fullData.types.map((t) => t.type.name)
-        setGradientClass(
-          types.length === 2
-            ? `type-${types[0]}-${types[1]}-gradient`
-            : `type-${types[0]}`
-        )
       } else {
         const data = pokemonLimitJson.results
         const pokemonFound = data.filter(pokemon => pokemon.name.includes(term))
@@ -105,7 +111,6 @@ export function useUnPokemon () {
     } catch (err) {
       console.error('Error:', err)
       setPokemon(null)
-      setGradientClass('')
       setError('No se encontró el Pokémon')
     } finally {
       setLoading(false)
@@ -115,7 +120,6 @@ export function useUnPokemon () {
   return {
     pokemon,
     loading,
-    gradientClass,
     firstSearch,
     error,
     fetchPokemon,

@@ -12,8 +12,7 @@ import { PokemonList } from './components/PokemonList'
 
 function App () {
   const [searchTerm, setSearchTerm] = useState('')
-  const [flipped, setFlipped] = useState(false)
-  const { pokemon, pokemons, loading, gradientClass, error, firstSearch, fetchPokemon } = useUnPokemon()
+  const { pokemon, pokemons, loading, error, firstSearch, fetchPokemon } = useUnPokemon()
 
   function handleSubmit (e) {
     e.preventDefault()
@@ -26,10 +25,6 @@ function App () {
     setSearchTerm(newSearch)
   }
 
-  function handleFlip () {
-    setFlipped(!flipped)
-  }
-
   return (
     <div className="min-vh-100 d-flex flex-column justify-content-center align-items-center bg-light px-3">
       <header className="w-100 py-4">
@@ -39,7 +34,7 @@ function App () {
           searchTerm={searchTerm}
         />
       </header>
-      <main className="container d-flex flex-column align-items-center justify-content-center flex-grow-1">
+      <main className="container my-auto">
         {loading
           ? <Loading />
           : pokemons && pokemons.length > 0
@@ -49,8 +44,6 @@ function App () {
                   <PokemonCard
                     key={poke.id || idx}
                     gradientClass={poke.gradientClass}
-                    flippCard={handleFlip}
-                    flipped={flipped}
                     front={<FrontCard pokemon={poke} />}
                     back={<BackCard pokemon={poke} />}
                   />
@@ -60,9 +53,7 @@ function App () {
             : pokemon
               ? (
                 <PokemonCard
-                  gradientClass={gradientClass}
-                  flippCard={handleFlip}
-                  flipped={flipped}
+                  gradientClass={pokemon.gradientClass}
                   front={<FrontCard pokemon={pokemon} />}
                   back={<BackCard pokemon={pokemon} />}
                 />
