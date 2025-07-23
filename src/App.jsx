@@ -9,13 +9,16 @@ import { useUnPokemon } from './hooks/useUnPokemon'
 import { FrontCard } from './components/FrontCard'
 import { BackCard } from './components/BackCard'
 import { PokemonList } from './components/PokemonList'
+import { Instrucciones } from './components/Instrucciones'
 
 function App () {
+  const [mostrarInstrucciones, setMostrarInstrucciones] = useState(true);
   const [searchTerm, setSearchTerm] = useState('')
   const { pokemon, pokemons, loading, error, firstSearch, fetchPokemon } = useUnPokemon()
 
   function handleSubmit (e) {
     e.preventDefault()
+    setMostrarInstrucciones(false)
     const term = searchTerm.toLowerCase()
     fetchPokemon({ term })
   }
@@ -35,6 +38,7 @@ function App () {
         />
       </header>
       <main className="container my-auto">
+        {mostrarInstrucciones && <Instrucciones />}
         {loading
           ? <Loading />
           : pokemons && pokemons.length > 0

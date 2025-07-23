@@ -1,12 +1,11 @@
 body {
-  background-image: url('/public/gifs/pokemon-emerald-title-screen-pixel-moewalls-com-ezgif.com-video-to-gif-converter.gif');
+  background-image: url('/gifs/pokemon-emerald-title-screen-pixel-moewalls-com-ezgif.com-video-to-gif-converter.gif');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   position: relative;
 }
-
 
 body::before {
   content: '';
