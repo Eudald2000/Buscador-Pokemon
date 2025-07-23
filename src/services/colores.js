@@ -35,5 +35,4 @@ combinations.forEach(({ type1, type2 }) => {
   const color2 = typeColors[type2]
   const className = `.type-${type1}-${type2}-gradient`
   const css = `${className} {\n  background: linear-gradient(135deg, ${color1}, ${color2});\n}`
-  console.log(css)
 })

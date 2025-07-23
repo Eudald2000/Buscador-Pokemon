@@ -79,8 +79,8 @@ export function useUnPokemon () {
         id: data.id,
         name: data.forms[0].name,
         sprites: {
-          front_default: data.sprites.front_default || '/img/No-Image.svg',
-          back_default: data.sprites.back_default || '/img/No-Image.svg'
+          front_default: data.sprites.front_default || './img/No-Image.svg',
+          back_default: data.sprites.back_default || './img/No-Image.svg'
         },
         types: data.types,
         abilities: data.abilities,

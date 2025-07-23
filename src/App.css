@@ -1,3 +1,20 @@
+body {
+  background-image: url('/public/gifs/pokemon-emerald-title-screen-pixel-moewalls-com-ezgif.com-video-to-gif-converter.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+
+
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
 .list-group-item {
   background-color: transparent;
 }
@@ -8,14 +25,13 @@
 
 /* ------- CARTA POKEMON --------------- */
 
-/* Contenedor para efecto 3D - Manteniendo el tamaño original */
 .card-pokemon-container {
   perspective: 1000px;
   min-width: 250px;
   max-width: 320px;
   aspect-ratio: 3 / 4;
 }
-/* Contenedor interno para el volteo */
+
 .card-pokemon-inner {
   position: relative;
   width: 100%;
@@ -24,12 +40,10 @@
   transform-style: preserve-3d;
 }
 
-/* Estado volteado */
 .card-pokemon-inner.flipped {
   transform: rotateY(180deg);
 }
 
-/* Caras de la carta (frente y dorso) */
 .card-pokemon-inner .card-pokemon {
   position: absolute;
   width: 100%;
@@ -37,29 +51,28 @@
   backface-visibility: hidden;
   top: 0;
   left: 0;
-
-  /* Mantener todos los estilos originales de la carta */
   border: 8px solid #EDCC1F !important;
   border-radius: 1rem;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
 
-/* Dorso girado 180 grados inicialmente */
 .card-pokemon-inner .card-pokemon:last-child {
   transform: rotateY(180deg);
 }
 
-/* Restaurar estilos de imágenes */
 .card-pokemon img {
   display: block;
   margin: auto;
   width: 80%;
   border: 4px solid #D1C54F !important;
-  /* Borde amarillo */
   border-radius: 0.5rem;
   padding: 4px;
 }
 .card-pokemon {
-  min-height: 430px; /* o ajusta según lo que necesites */
+  min-height: 430px; 
+}
+
+input:focus{
+box-shadow: none !important;
 }

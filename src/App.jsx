@@ -26,7 +26,7 @@ function App () {
   }
 
   return (
-    <div className="min-vh-100 d-flex flex-column justify-content-center align-items-center bg-light px-3">
+    <div className="min-vh-100 d-flex flex-column justify-content-center align-items-center px-3">
       <header className="w-100 py-4">
         <Buscador
           handleSubmit={handleSubmit}
